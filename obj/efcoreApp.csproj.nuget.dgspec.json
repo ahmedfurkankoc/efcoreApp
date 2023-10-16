@@ -1,27 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\furkan\\Desktop\\efcoreApp\\efcoreApp.csproj": {}
+    "/Users/furkan/Desktop/efcoreApp/efcoreApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\furkan\\Desktop\\efcoreApp\\efcoreApp.csproj": {
+    "/Users/furkan/Desktop/efcoreApp/efcoreApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\furkan\\Desktop\\efcoreApp\\efcoreApp.csproj",
+        "projectUniqueName": "/Users/furkan/Desktop/efcoreApp/efcoreApp.csproj",
         "projectName": "efcoreApp",
-        "projectPath": "C:\\Users\\furkan\\Desktop\\efcoreApp\\efcoreApp.csproj",
-        "packagesPath": "C:\\Users\\furkan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\furkan\\Desktop\\efcoreApp\\obj\\",
+        "projectPath": "/Users/furkan/Desktop/efcoreApp/efcoreApp.csproj",
+        "packagesPath": "/Users/furkan/.nuget/packages/",
+        "outputPath": "/Users/furkan/Desktop/efcoreApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\furkan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/furkan/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.307/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +40,12 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[7.0.8, )"
@@ -64,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     }
