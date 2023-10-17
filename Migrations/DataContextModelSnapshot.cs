@@ -43,7 +43,7 @@ namespace efcoreApp.Migrations
                     b.Property<int>("KursId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("OgrenciId")
+                    b.Property<int>("OgrenciKimlik")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("KayitId");

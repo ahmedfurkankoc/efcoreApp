@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace efcoreApp.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,7 +17,7 @@ namespace efcoreApp.Migrations
                 {
                     KayitId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    OgrenciId = table.Column<int>(type: "INTEGER", nullable: false),
+                    OgrenciKimlik = table.Column<int>(type: "INTEGER", nullable: false),
                     KursId = table.Column<int>(type: "INTEGER", nullable: false),
                     KayitTarihi = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
