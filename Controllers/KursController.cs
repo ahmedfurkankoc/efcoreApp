@@ -4,19 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace efcoreApp.Controllers
 {
-    public class OgrenciController : Controller
+    public class KursController : Controller
     {
         private readonly DataContext _context;
-        public OgrenciController(DataContext context)
+        public KursController(DataContext context)
         {
             _context = context;
         }
 
-
         public async Task<IActionResult> Index()
         {
-            var ogrenciler = await _context.Ogrenciler.ToListAsync();
-            return View(ogrenciler);
+            var Kurslar = await _context.Kurslar.ToListAsync();
+            return View(Kurslar);
         }
 
         public IActionResult Create()
@@ -24,12 +23,11 @@ namespace efcoreApp.Controllers
             return View();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken] 
-        public async Task<IActionResult> Create(Ogrenci model)
+        public async Task<IActionResult> Create(Kurs model)
         {
-            _context.Ogrenciler.Add(model);
+            _context.Kurslar.Add(model);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
@@ -41,24 +39,21 @@ namespace efcoreApp.Controllers
                 return NotFound();
             }
 
-            var ogr = await _context.Ogrenciler.FindAsync(id); // FindAsync => sadece id ye göre bir arama yapılabilir.
+            var kurs = await _context.Kurslar.FindAsync(id);            
             
-            // var ogr = await _context.Ogrenciler.FirstOrDefaultAsync(o => o.OgrenciKimlik == id); // o.OgrenciKimlik kısmına örnek olarak Telefon yazılırsa telefon numarası ile de arama yapılabilir.
-
-
-            if(ogr == null)
+            if(kurs == null)
             {
                 return NotFound();
             }
 
-            return View(ogr);
+            return View(kurs);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken] // (Cross Site Attack) form içerisine asp.net'in eklemiş olduğu RequestVerificationToken value'sının kontrolunu yapmasını sağlar. 
-        public async Task<IActionResult> Edit(int id, Ogrenci model)
+        [ValidateAntiForgeryToken] 
+        public async Task<IActionResult> Edit(int id, Kurs model)
         {
-            if(id != model.OgrenciKimlik)
+            if(id != model.KursId)
             {
                 return NotFound();
             }
@@ -70,9 +65,9 @@ namespace efcoreApp.Controllers
                     _context.Update(model); //güncelleme işaretlendi
                     await _context.SaveChangesAsync(); //güncelleme yapıldı.
                 }
-                catch(DbUpdateConcurrencyException)
+                catch(DbUpdateException)
                 {
-                    if(!_context.Ogrenciler.Any(o => o.OgrenciKimlik == model.OgrenciKimlik))
+                    if(!_context.Kurslar.Any(o => o.KursId == model.KursId))
                     {
                         return NotFound();
                     }
@@ -86,7 +81,7 @@ namespace efcoreApp.Controllers
 
             return View(model);
         }
-    
+
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -95,28 +90,28 @@ namespace efcoreApp.Controllers
                 return NotFound();
             }
 
-            var ogrenci = await _context.Ogrenciler.FindAsync(id);
+            var kurs = await _context.Kurslar.FindAsync(id);
 
-            if(ogrenci == null)
+            if(kurs == null)
             {
                 return NotFound();
             }
 
-            return View(ogrenci);
+            return View(kurs);
         } 
 
         [HttpPost]
         public async Task<IActionResult> Delete([FromForm]int id)
         {
-            var ogrenci = await _context.Ogrenciler.FindAsync(id);
-            if(ogrenci == null)
+            var kurs = await _context.Kurslar.FindAsync(id);
+            if(kurs == null)
             {
                 return NotFound();
             }
-            _context.Ogrenciler.Remove(ogrenci);
+            _context.Kurslar.Remove(kurs);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
         
-    }    
+    }
 }
